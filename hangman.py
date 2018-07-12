@@ -10,7 +10,7 @@ counter = int(input("How many missed guesses do you want to give the players?"))
 # Shows what letters have been revealed and which ones still need to be guessed
 reveal = []
 
-# creates a space between the original questions and the game
+# creates a space between the original questions and the game - i = the number of spaces wanted
 i = 30
 for each in word:
 	reveal.append("_")
@@ -20,14 +20,20 @@ while i > 0:
 	
 
 print (reveal)
+
+# The loop will not start again if there are no incorrect guesses left
 while counter > 0:
+#  If there have been previous guesses then this if loop will print them
 	if len(guesses) != 0:
 		print ("Guesses so far: ")
 		print (guesses)
+# Asks the player for their next guess 
 	guess = input("What is your guess?")
+# Checks if the guess is only 1 letter, if the letter has been guessed before, if the user wishes to quit the game
 	if len(guess) == 1 :
 		if guess not in guesses:
 			guesses.append(guess)
+# This if statement and for loop find if the letter is in the word or phrase and replace the spaces in reveal with the correct letter based on their position
 			if guess in word:
 				for m in re.finditer(guess, word):
 					m = m.start()
@@ -41,9 +47,11 @@ while counter > 0:
 		break
 	else:
 		print ("Your guess is longer than 1 letter")
+# Shows the incorrect guesses left and leters revealed
 	print (reveal)
 	print ("Incorrect guesses left:")
 	print (counter)
+# Checks if the player has won or lost
 	if "_" not in reveal:
 		print ("Congrats, you have won")
 		break 
