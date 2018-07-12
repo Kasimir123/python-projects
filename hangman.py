@@ -1,15 +1,24 @@
 import re
 print ("Welcome to Hangman, please enter a word which you would like to use for the game, and then enter how many failed guesses you wish to give to the players.")
+
+# Initializes constants for the program
 word = input("What is the word?")
+# Storage for all the letters that were already guessed
 guesses = []
+# The number of incorrect guesses that the players will get
 counter = int(input("How many missed guesses do you want to give the players?"))
+# Shows what letters have been revealed and which ones still need to be guessed
 reveal = []
+
+# creates a space between the original questions and the game
 i = 30
 for each in word:
 	reveal.append("_")
 while i > 0:
 	print ("|")
 	i -= 1
+	
+
 print (reveal)
 while counter > 0:
 	if len(guesses) != 0:
