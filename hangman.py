@@ -18,7 +18,12 @@ while i > 0:
 	print ("|")
 	i -= 1
 	
-
+# Checks if there are spaces in the phrase, if yes, then it replaces the empty spaces with a space 
+if " " in word:
+	for m in re.finditer(" ", word):
+		m = m.start()
+		reveal[m] = " "
+		
 print (reveal)
 
 # The loop will not start again if there are no incorrect guesses left
