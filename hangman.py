@@ -3,10 +3,24 @@ print ("Welcome to Hangman, please enter a word which you would like to use for 
 
 # Initializes constants for the program
 word = input("What is the word?")
+
+# Checks to see if the player actually put a word or phrase into the input
+if len(word) <= 0:
+	print ("Please write a word or phrase")
+	while len(word) <= 0:
+		word = input("What is the word?")
+		
 # Storage for all the letters that were already guessed
 guesses = []
 # The number of incorrect guesses that the players will get
-counter = int(input("How many missed guesses do you want to give the players?"))
+counter = input("How many missed guesses do you want to give the players?")
+
+# Makes sure the user inputs a reasonable number of incorrect guesses
+if counter <= 0 or counter >= 10:
+	print ("Number of guesses must be greater than 0 and less than 10")
+	while counter <= 0:
+		counter = input("How many missed guesses do you want to give the players?")
+		
 # Shows what letters have been revealed and which ones still need to be guessed
 reveal = []
 
